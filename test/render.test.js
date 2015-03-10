@@ -10,7 +10,10 @@ describe('Render ', function() {
             if (err) throw err;
             assert.equal(source._info.format,undefined); // so will default to png in getTile
             source._info.format = 'jpeg20';
-            source.getTile(0,0,0, function(err, tile, headers) {
+            source.getTile(0,0,0, function(err, tile, headers, stats) {
+                assert.ok(stats);
+                assert.ok(stats.hasOwnProperty('render'));
+                assert.ok(stats.hasOwnProperty('encode'));
                 assert.imageEqualsFile(tile, 'test/fixture/tiles/world-jpeg20.jpeg', function(err, similarity) {
                     if (err) throw err;
                     assert.deepEqual(headers, {
