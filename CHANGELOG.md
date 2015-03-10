@@ -1,9 +1,5 @@
 # tilelive-mapnik changelog
 
-## 0.6.x
-
-* autoLoadFonts only set to true if true-ish value provided
-
 ## 0.6.12
 
 * Improved cache key generation
